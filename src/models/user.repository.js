@@ -2,26 +2,31 @@
 import RepositoryBuilder from 'sendit-mongoose-repository'
 
 export const schemaDefinition = {
-  username: {
+  firstName: {
     type: String,
+  },
+  lastName: {
+    type: String,
+  },
+  nickname: {
+    type: String,
+  },
+  birthday: {
+    type: Date,
+  },
+  gender: {
+    type: String,
+    enum: ['male', 'female'],
   },
   email: {
-    type: String,
-  },
-  phone: {
     type: String,
   },
   password: {
     type: String,
   },
-  firstname: {
+  role: {
     type: String,
-  },
-  lastname: {
-    type: String,
-  },
-  validateToken: {
-    type: String,
+    enum: ['student', 'instructor'],
   },
 }
 
