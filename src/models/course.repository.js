@@ -1,4 +1,3 @@
-// import Mongoose from 'mongoose'
 import RepositoryBuilder from 'sendit-mongoose-repository'
 
 export const schemaDefinition = {
@@ -25,5 +24,5 @@ export const schemaDefinition = {
   },
 }
 
-export const builder = RepositoryBuilder('User', schemaDefinition)
+export const builder = RepositoryBuilder('Course', schemaDefinition)
 export default builder.Repository
