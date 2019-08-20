@@ -21,6 +21,7 @@ export default async body => {
     birthday: user.birthday,
     gender: user.gender,
     email: user.email,
+    role: user.role,
   }
   const token = user !== null ? await jwt.sign(jwtUser, privateKey) : null
 
