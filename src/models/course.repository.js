@@ -14,10 +14,10 @@ export const schemaDefinition = {
     type: String,
   },
   startTime: {
-    type: Date,
+    type: String,
   },
   endTime: {
-    type: Date,
+    type: String,
   },
   numberOfStudent: {
     type: Number,
