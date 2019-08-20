@@ -2,8 +2,6 @@ import userRespository from '../../models/user.repository'
 import { checkUpdate, findOneIfNotExistThrowError } from '../../utils/domain'
 
 const updateUserProfile = async (id, body) => {
-  console.log('body--------------\n', body)
-
   await findOneIfNotExistThrowError(userRespository, { _id: id })
   const data = await checkUpdate(userRespository, { _id: id }, body)
 
