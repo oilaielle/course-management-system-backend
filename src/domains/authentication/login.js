@@ -4,7 +4,7 @@ import userRepository from '../../models/user.repository'
 
 export default async body => {
   const { email, password } = body
-  
+
   const privateKey = process.env.PRIVATE_KEY
   const jwtPassword = await jwt.sign(password, privateKey)
   const filter = {
@@ -24,5 +24,5 @@ export default async body => {
   }
   const token = user !== null ? await jwt.sign(jwtUser, privateKey) : null
 
-  return token
+  return { token, user: jwtUser }
 }

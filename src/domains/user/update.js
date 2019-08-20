@@ -1,24 +1,11 @@
 import userRespository from '../../models/user.repository'
 import { checkUpdate, findOneIfNotExistThrowError } from '../../utils/domain'
 
-const updateUserProfile = async (usernameOrEmailOrPhone: string, body: any) => {
-  const query = {
-    $or: [
-      {
-        email: usernameOrEmailOrPhone,
-      },
-      {
-        phone: usernameOrEmailOrPhone,
-      },
-      {
-        username: usernameOrEmailOrPhone,
-      },
-    ],
-    isActive: true,
-  }
-  const user = await findOneIfNotExistThrowError(userRespository, query)
-  await checkUpdate(userRespository, query, { ...body, password: user.password })
-  return body
+const updateUserProfile = async (id, body) => {
+  await findOneIfNotExistThrowError(userRespository, {_id:id})
+  const data = await checkUpdate(userRespository, { _id: id }, body)
+  
+  return data
 }
 
 export default updateUserProfile

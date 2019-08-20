@@ -1,10 +1,9 @@
-// @flow
 import userRepository from '../../models/user.repository'
 import { checkDelete, findOneIfNotExistThrowError } from '../../utils/domain'
 
-const deleteUser = async (username: string) => {
-  await findOneIfNotExistThrowError(userRepository, { username })
-  const resp = await checkDelete(userRepository, { username })
+const deleteUser = async id => {
+  await findOneIfNotExistThrowError(userRepository, { _id: id })
+  const resp = await checkDelete(userRepository, { _id: id })
   return resp
 }
 
